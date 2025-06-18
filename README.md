@@ -66,12 +66,13 @@ npm install
    - **Allowed Callback URLs**
    - **Allowed Logout URLs**
    - **Allowed Web Origins**
-4. Scroll down and copy the **Domain** and **Client ID**
-5. Go to **Security > Multi-factor Auth** and:
+4. Under User Management Create a new Test User bu giving a valid email and a strong password
+5. Scroll down and copy the **Domain** and **Client ID**
+6. Go to **Security > Multi-factor Auth** and:
    - Enable **MFA** (choose an option like SMS or Authenticator App)
    - Set the policy to **"Always"**
-6. Go to **Authentication > Database > Settings**:
-   - Disable **Sign Ups** to prevent new users from registering
+7. Go to **Authentication > Database > Settings**:
+   - Disable **Sign Ups** to prevent new users from registering (optional)
 
 ---
 
