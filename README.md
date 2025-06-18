@@ -1,54 +1,98 @@
-# React + TypeScript + Vite
+# 🎬 Movie Explorer App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A **frontend movie explorer app** developed using **React (Vite)** and **Tailwind CSS**, powered by the **OMDB API**. Authentication is handled using **Auth0** with **Multi-Factor Authentication (MFA)** and protected routing for secure access.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🛠️ Tech Stack
 
-## Expanding the ESLint configuration
+- **React + Vite**
+- **Tailwind CSS**
+- **TypeScript**
+- **OMDB API**
+- **Auth0** (Authentication with MFA)
+- **React Router DOM**
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+---
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+## ✨ Key Features
+
+- 🔍 Search and explore movies using the OMDB API
+- 🔐 Auth0-based login with Multi-Factor Authentication (MFA)
+- 🔒 Protected routes (only accessible to logged-in users)
+- 📜 Infinite scrolling for movie results
+- 📱 Fully responsive and mobile-friendly design
+
+---
+
+## 🚀 Getting Started
+
+Follow the steps below to run this project on your local machine.
+
+---
+
+### 1. Clone the Repository
+
+```bash
+git clone https://github.com/PramodRavindu00/movie_explorer.git
+cd movie-explorer
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+---
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+### 2. Install Dependencies
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
+```bash
+npm install
 ```
+
+---
+
+### 3. Create an OMDB API Key
+
+1. Visit the OMDB API website: [https://www.omdbapi.com/apikey.aspx](https://www.omdbapi.com/apikey.aspx)
+2. Sign up for a free account
+3. Select the **Free plan**
+4. After verification, you'll receive an **API Key** via email
+5. Copy and save the API key — you will use this in the `.env` file
+
+---
+
+### 4. Set Up Auth0 for Authentication
+
+1. Go to [Auth0 Dashboard](https://manage.auth0.com/)
+2. Create a new **Single Page Application (SPA)**
+3. Under **Settings**, add `http://localhost:5173` to the following:
+   - **Allowed Callback URLs**
+   - **Allowed Logout URLs**
+   - **Allowed Web Origins**
+4. Scroll down and copy the **Domain** and **Client ID**
+5. Go to **Security > Multi-factor Auth** and:
+   - Enable **MFA** (choose an option like SMS or Authenticator App)
+   - Set the policy to **"Always"**
+6. Go to **Authentication > Database > Settings**:
+   - Disable **Sign Ups** to prevent new users from registering
+
+---
+
+### 5. Create a `.env` File
+
+In the root of your project, create a `.env` file and add the following variables:
+
+```env
+VITE_API_KEY=your_omdb_api_key
+VITE_AUTH0_DOMAIN=your_auth0_domain
+VITE_AUTH0_CLIENT=your_auth0_client_id
+```
+
+> Replace `your_omdb_api_key`, `your_auth0_domain`, and `your_auth0_client_id` with your actual values.
+
+---
+
+### 6. Run the Development Server
+
+```bash
+npm run dev
+```
+
+Visit `http://localhost:5173` to use the app.
