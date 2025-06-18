@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useForm, type SubmitHandler } from "react-hook-form";
 import { FaSearch, FaTimes } from "react-icons/fa";
 import { toast } from "react-toastify";
+import { useScrollDirection } from "../hooks/scrollDetectHook";
 
 const API_KEY = import.meta.env.VITE_API_KEY;
 
@@ -24,6 +25,7 @@ const SearchBar = ({
   setHasSearchedExternal,
   page,
 }: PropTypes) => {
+  const showSearchBar = useScrollDirection();
   const [hasSearched, setHasSearched] = useState(false);
   const {
     register,
@@ -64,8 +66,14 @@ const SearchBar = ({
   }, [setSubmitting, isSubmitting]);
 
   return (
-    <div className="w-full flex items-center justify-center py-5">
-      <form className="w-full md:w-1/3" onSubmit={handleSubmit(onSubmit)}>
+    <div
+      className={`z-10 sticky top-20 left-0 w-full flex items-center justify-center py-5 sm:pt-10 sm:pb-5 px-5 bg-white    transform transition-transform duration-300 ease-in-out
+      ${showSearchBar ? "translate-y-0" : "-translate-y-[200%]"}`}
+    >
+      <form
+        className="w-full md:w-2/3 lg:w-1/2"
+        onSubmit={handleSubmit(onSubmit)}
+      >
         <div className="flex flex-row flex-grow gap-x-5 items-center relative">
           <input
             {...register("searchTerm", {

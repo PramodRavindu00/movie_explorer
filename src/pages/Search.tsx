@@ -50,7 +50,7 @@ const Search = () => {
   };
 
   return (
-    <div className="flex flex-col items-center w-full">
+    <div className="flex flex-col w-full items-center justify-center">
       <SearchBar
         setMovies={setMovies}
         setSubmitting={setSubmitting}
@@ -86,7 +86,7 @@ const Search = () => {
           No movies found
         </p>
       ) : (
-        <h1 className="text-3xl font-semibold text-gray-500">
+        <h1 className="text-lg sm:text-xl md:text-2xl font-semibold text-gray-500 text-center">
           Explore your favorite Movies here....
         </h1>
       )}

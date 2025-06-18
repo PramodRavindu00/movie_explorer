@@ -12,7 +12,7 @@ interface Movies {
 
 const MovieGrid = ({ movies }: Movies) => {
   return (
-    <div className="w-full grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-5 p-5">
+    <div className="w-full grid grid-cols-1 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-5 py-5 px-10">
       {movies &&
         movies.length > 0 &&
         movies.map((movie: Movie, index: number) => (
